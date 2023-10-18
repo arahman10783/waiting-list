@@ -1,15 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux'
 import style from './QueueLine.module.css'
-import {actions} from '../../store/actions'
+import { newCustomer } from '../../store/customerSlice'
 
 export default function QueueLine() {
-  const waiting = useSelector(state => state.filter(el => el.status === 'waiting').length)
-  const all = useSelector(state => state.length)
+  const waiting = useSelector(({coustomerSlice}) => coustomerSlice.filter(el => el.status === 'waiting').length)
+  const all = useSelector(state => state.coustomerSlice.length)
   const dispatch = useDispatch()
   function newCutomerHandelr (){
-    dispatch({
-      type: actions.newCustomer,
-    })
+    dispatch(newCustomer())
   }
   return (
     <>
