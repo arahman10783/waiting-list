@@ -1,0 +1,8 @@
+.adminScreen{
+  position: absolute;
+  background-color: black;
+  width: 133px;
+  height: 105px;
+  right: 65px;
+  top: 75px;
+}

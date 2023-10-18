@@ -1,0 +1,16 @@
+.container{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  color: #FFF;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.count{
+  letter-spacing: 3px;
+}
+
+.container span{
+  font-size: 12px;
+}
