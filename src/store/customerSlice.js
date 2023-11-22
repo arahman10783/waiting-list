@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createSelector } from "@reduxjs/toolkit";
 
 const initialState = [
   { id: "0", number: 1, status: "waiting" },
@@ -23,6 +23,13 @@ export const coustomerSlice = createSlice({
       }
   },
 }});
+
+const selectSelf = (state) => state.coustomerSlice
+export const currentCustomer = createSelector(selectSelf, (state) => state.find(el => el.status === 'waiting'))
+export const waitingCustomers = createSelector(selectSelf, (state) => state.filter(el => el.status === 'waiting'))
+export const allCustomers = createSelector(selectSelf, (state) => state)
+export const servedCustomers = createSelector(selectSelf, (state) => state.filter(el => el.status === 'served'))
+
 
 export const { nextCustomer, newCustomer } = coustomerSlice.actions;
 export default coustomerSlice.reducer;
